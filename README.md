@@ -36,7 +36,7 @@ git clone https://github.com/Androz2091/backups-bot
 
 * Fill configuration (config.json)
 
-> Head to https://discord.com/developers/applications  and create an application to obtain your bot token.
+> Head to https://discord.com/developers/applications and create an application to obtain your bot token.
 
 ```json
 {
