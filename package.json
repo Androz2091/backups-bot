@@ -1,0 +1,11 @@
+{
+  "name": "backups-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Androz2091 <androz2091@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord-backup": "^2.3.0",
+    "discord.js": "^12.5.1"
+  }
+}
