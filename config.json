@@ -1,4 +1,4 @@
 {
-    "token": "Your Discord Bot token",
+    "token": "Your Discord Bot token", //Head to => https://discord.com/developers/applications
     "prefix": "b!"
 }
