@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+const backup = require("discord-backup");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -30,6 +30,9 @@ fs.readdir("./commands/", (_err, files) => {
         console.log(`👌 Command loaded: ${commandName}`);
     });
 });
+
+/* Configure backup storage location */
+backup.setStorageFolder(__dirname + "/" + config.folder + "/");
 
 // Login
 client.login(config.token);
