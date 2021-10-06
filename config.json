@@ -1,4 +1,5 @@
 {
     "token": "Your Discord Bot token",
-    "prefix": "b!"
+    "prefix": "b!",
+    "folder": "backups"
 }

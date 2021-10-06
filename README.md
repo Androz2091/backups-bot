@@ -41,7 +41,8 @@ git clone https://github.com/Androz2091/backups-bot
 ```json
 {
     "token": "Your Discord Bot token",
-    "prefix": "b!"
+    "prefix": "b!",
+    "folder": "backups"
 }
 ```
 
