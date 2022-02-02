@@ -4,7 +4,7 @@ const backup = require('discord-backup');
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.hasPermission('MANAGE_MESSAGES')){
+    if(!message.member.permissions.has(require('discord.js').Permissions.FLAGS.MANAGE_MESSAGES)){
         return message.channel.send(':x: You need to have the manage messages permissions to create a backup in this server.');
     }
 
@@ -20,13 +20,18 @@ exports.run = async (client, message, args) => {
         const formattedDate = `${yyyy}/${(mm[1]?mm:"0"+mm[0])}/${(dd[1]?dd:"0"+dd[0])}`;
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor('ℹ️ Backup', backup.data.iconURL)
+            .setAuthor({
+                name: 'ℹ️ Backup',
+                iconURL: backup.data.iconURL
+            })
             .addField('Server name', backup.data.name)
             .addField('Size', backup.size + ' kb')
             .addField('Created at', formattedDate)
-            .setFooter('Backup ID: '+backup.id);
+            .setFooter({
+                text: 'Backup ID: '+backup.id
+            });
 
-        return message.channel.send(embed);
+        return message.channel.send({ embeds: [embed] });
 
     }).catch((err) => {
 
