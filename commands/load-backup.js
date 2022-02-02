@@ -3,7 +3,7 @@ const backup = require('discord-backup');
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.hasPermission('ADMINISTRATOR')){
+    if(!message.member.permissions.has(require('discord.js').Permissions.FLAGS.ADMINISTRATOR)){
         return message.channel.send(':x: You need to have the manage messages permissions to create a backup in this server.');
     }
 
@@ -13,7 +13,8 @@ exports.run = async (client, message, args) => {
 
         message.channel.send(':warning: All the server channels, roles, and settings will be cleared. Do you want to continue? Send `-confirm` or `cancel`!');
 
-        const collector = message.channel.createMessageCollector((m) => m.author.id === message.author.id && ['-confirm', 'cancel'].includes(m.content), {
+        const collector = message.channel.createMessageCollector({
+            filter: (m) => m.author.id === message.author.id && ['-confirm', 'cancel'].includes(m.content),
             time: 60000,
             max: 1
         });
