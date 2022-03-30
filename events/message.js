@@ -1,6 +1,9 @@
 const config = require('../config.json');
 
 module.exports = (client, message) => {
+    // Ignore direct messages
+	if(message.channel.type === 'dm') return;
+    
     // Ignore all bots
     if (message.author.bot) return;
   
